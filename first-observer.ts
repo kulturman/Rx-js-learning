@@ -4,6 +4,13 @@ const namesObservable$ = new Observable<string>(subscriber => {
     subscriber.next('Arsène');
     subscriber.next('Arnaud');
     subscriber.next('Armand');
+    setTimeout(() => {
+        subscriber.next('Arnold')
+    }, 2000);
+
+    setTimeout(() => {
+        subscriber.next('Arnauld')
+    }, 5000);
 });
 
 const observer = {
@@ -11,4 +18,4 @@ const observer = {
 };
 
 const subscription = namesObservable$.subscribe(observer);
-subscription.unsubscribe();
+setTimeout(() => subscription.unsubscribe(), 3000);

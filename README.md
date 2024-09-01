@@ -1,1 +1,1 @@
-## This repo is to learn correctly RxJS
+## This repo is to learn RxJS correctly

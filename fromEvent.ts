@@ -2,10 +2,12 @@ import {fromEvent} from "rxjs";
 
 const button = document.querySelector('button') as EventTarget;
 
-const observable$ = fromEvent<MouseEvent>(button, 'click');
+if (button != null) {
+    const observable$ = fromEvent<MouseEvent>(button, 'click');
 
-observable$.subscribe(event => {
-    console.log(`Clicked at (${event.x}, ${event.y})`);
-    const text = document.querySelector('p') as HTMLElement;
-    text.innerText = `(${event.x}, ${event.y})`
-})
+    observable$.subscribe(event => {
+        console.log(`Clicked at (${event.x}, ${event.y})`);
+        const text = document.querySelector('p') as HTMLElement;
+        text.innerText = `(${event.x}, ${event.y})`
+    })
+}
